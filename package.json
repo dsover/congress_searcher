@@ -1,0 +1,32 @@
+{
+  "name": "congress_searcher",
+  "version": "0.0.1",
+  "description": "api to work with the sunlight foundations congress api (https://sunlightlabs.github.io/congress/)",
+  "main": "index.js",
+  "scripts": {
+    "start": "ENVIRONMENT=local PORT=5000 node $(jq -r .main package.json)",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dsover/congress_searcher.git"
+  },
+  "keywords": [
+    "congress",
+    "voting-records",
+    "roll-call"
+  ],
+  "author": "Alex Sover",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dsover/congress_searcher/issues"
+  },
+  "homepage": "https://github.com/dsover/congress_searcher#readme",
+  "dependencies": {
+    "nconf": "0.8.4"
+  },
+  "devDependencies": {
+    "eslint": "3.19.0",
+    "jq-cli-wrapper": "0.4.0"
+  }
+}
