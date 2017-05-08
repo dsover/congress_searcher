@@ -1,5 +1,13 @@
 'use strict';
 
-const config = require('./config.js');
+const legs = require('./lib/endpoints/legislators.js');
 
-console.log(config.get('sunlight_api_url'));
+
+let l = new legs();
+
+l.setQuery('?zip=30022')
+    .locate().call()
+    .then((data) => {
+        console.log(data);
+    });
+

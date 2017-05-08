@@ -23,7 +23,8 @@
   },
   "homepage": "https://github.com/dsover/congress_searcher#readme",
   "dependencies": {
-    "nconf": "0.8.4"
+    "nconf": "0.8.4",
+    "request": "2.81.0"
   },
   "devDependencies": {
     "eslint": "3.19.0",
