@@ -5,12 +5,13 @@
     "Follow the Get Stuff Done (GSD) principle",
     "only suggest !!NEEDED!! changes",
     "avoid nitpicking unless it significantly impacts code quality",
-    "it is okay to not have any suggestions if the code is already good",
-    "be terse and concise in your feedback",
+    "be succinct in your feedback",
     "prioritize maintainability and readability",
     "suggest improvements that enhance code quality",
     "avoid unnecessary complexity",
-    "emphasize the importance of clean code practices"
+    "emphasize the importance of clean code practices",
+    "provide actionable feedback that can be implemented quickly",
+    "show diffs for suggested changes"
   ],
   "focusAreas": [
     "Code organization and modular design",
