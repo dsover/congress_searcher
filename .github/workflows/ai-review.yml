@@ -3,14 +3,14 @@ name: AI PR Review
 on:
   pull_request:
     types: [opened, labeled]
-    branches: [main]
+    branches: [master, main]
 
   workflow_dispatch: 
     inputs: 
         ref:
           description: 'Branch or commit SHA to review'
           required: false
-          default: 'main'
+          default: 'master'
         pr: 
             description: 'Pull request number to review'
             required: false
