@@ -21,9 +21,9 @@
     "Adequate test coverage of critical paths"
   ],
   "examples": [
-    "BLOCKER • Unsanitised user input (server/routes/login.ts, lines 89‑91)\n--- a/server/routes/login.ts\n+++ b/server/routes/login.ts\n@@ -89,3 +89,3 @@\n-const query = `SELECT * FROM users WHERE email = '${email}'`;\n+const query = sql`SELECT * FROM users WHERE email = ${email}`;\n execute(query);",
-    "MINOR • Redundant Promise wrapper (utils/fs.ts, lines 12‑15)\n--- a/utils/fs.ts\n+++ b/utils/fs.ts\n@@ -12,4 +12,2 @@\n-export const readFileAsync = (path) => {\n-  return fs.promises.readFile(path, 'utf8');\n-};\n+export const readFileAsync = (path) => fs.promises.readFile(path, 'utf8');",
-    "APPROVED • No issues found"
+    ">#### Unsanitized user input <sub>correctly bind query variables</sub>  [!CAUTION]\n>  (server/routes/login.ts, lines 89‑91)\n> ```udiff\n> --- a/server/routes/login.ts\n> +++ b/server/routes/login.ts\n@@ -89,3 +89,3 @@\n> -const query = `SELECT * FROM users WHERE email = '${email}'`;\n> +const query = sql`SELECT * FROM users WHERE email = ${email}`;\n> execute(query);\n> ```",
+    "#### Redundant Promise wrapper <sub>remove the redundant wrapper to clean up the code </sub>\n>[!WARNING] \n>`utils/fs.ts` lines 12‑15\n>```udiff\n>--- a/utils/fs.ts\n>+++ b/utils/fs.ts\n>@@ -12,4 +12,2 @@\n>-export const readFileAsync = (path) => {\n>-  return fs.promises.readFile(path, 'utf8');\n>-};\n>+export const readFileAsync = (path) => fs.promises.readFile(path, 'utf8');\n>```",
+    "[!INFO] No issues found"
   ],
-  "additionalInstructions": "Return **valid JSON only**—no markdown fencing or commentary outside the JSON. Top‑level keys must be exactly `status` and `findings`. Treat anything you might ordinarily write as narrative guidance as either `INFO` findings or omit it entirely."
+  "additionalInstructions": "Return **valid Github MARKDOWN only**—. Each finding must be a separate item separated by a horizontal line. each comment should encapsulated in a alert block that highlights the severity level ([!IMPORTANT], [!WARNING], [!NOTE], [!TIP], [!CAUTION]). code blocks must be valid unified diffs in GitHub Flavored Markdown. Include a short summary in."
 }
