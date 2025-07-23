@@ -37,3 +37,4 @@ jobs:
           max_tokens: 32768
           temperature: 0.3
           exclude_patterns: '.github/*, *.json'
+          custom_review_rules: 'custom-rules/review.json'

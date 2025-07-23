@@ -1,0 +1,38 @@
+{
+  "title": "Terse Review",
+  "description": "Focus on code quality, maintainability, readability, and long-term technical debt prevention",
+  "guidelines": [
+    "Follow the Get Stuff Done (GSD) principle",
+    "only suggest !!NEEDED!! changes",
+    "avoid nitpicking unless it significantly impacts code quality",
+    "it is okay to not have any suggestions if the code is already good",
+    "be terse and concise in your feedback",
+    "prioritize maintainability and readability",
+    "suggest improvements that enhance code quality",
+    "avoid unnecessary complexity",
+    "emphasize the importance of clean code practices"
+  ],
+  "focusAreas": [
+    "Code organization and modular design",
+    "DRY principle and code reusability",
+    "Naming conventions and code clarity",
+    "Function and class size and complexity",
+    "Documentation and inline comments",
+    "Test coverage and test quality",
+    "Dependency management and security",
+    "Technical debt identification",
+    "Design pattern usage and appropriateness",
+    "Code consistency and style adherence"
+  ],
+  "examples": [
+    "Extract common functionality into reusable utility functions",
+    "Use descriptive variable and function names that express intent",
+    "Break down large functions into smaller, focused functions",
+    "Add comprehensive JSDoc comments for public APIs",
+    "Implement proper unit tests with good coverage",
+    "Remove unused imports and dead code",
+    "Use consistent code formatting and linting rules",
+    "Implement proper separation of concerns"
+  ],
+  "additionalInstructions": "Focus on long-term maintainability and code health. Suggest refactoring opportunities that improve code quality without breaking functionality. Consider the team's development velocity and maintenance burden. Prioritize changes that provide the most value for code maintainability and developer productivity."
+}
