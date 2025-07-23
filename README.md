@@ -39,7 +39,7 @@ l.setQuery('zip=30022')
 ### API
 #### Legislators
 
-- `setQuery(query)`: Set the query string (e.g., `'zip=30022<vscode_annotation details='%5B%7B%22title%22%3A%22sql-injection%22%2C%22description%22%3A%22Unchecked%20input%20in%20database%20commands%20can%20alter%20intended%20queries%22%7D%5D'>'</vscode_annotation>`)
+- `setQuery(query)`: Set the query string (e.g., `'zip=30022`)
 - `locate()`: Use the legislators/locate endpoint
 - `call()`: Execute the API call, returns a Promise
 
@@ -51,4 +51,4 @@ l.setQuery('zip=30022')
 MIT License. See `LICENSE`.
 
 Links
-Sunlight Foundation Congress API Docs
+[Sunlight Foundation Congress API Docs](https://sunlightlabs.github.io/congress/)
