@@ -2,19 +2,8 @@ name: AI PR Review
 
 on:
   pull_request:
-    types: [opened, labeled]
+    types: [opened, reopened, synchronize, labeled]
     branches: [master, main]
-
-  workflow_dispatch: 
-    inputs: 
-        ref:
-          description: 'Branch or commit SHA to review'
-          required: false
-          default: 'master'
-        pr: 
-            description: 'Pull request number to review'
-            required: false
-            type: number
 
 permissions:
   contents: read
@@ -22,6 +11,14 @@ permissions:
 
 jobs:
   review:
+    if: |
+      (github.event.pull_request.base.ref == 'master' || github.event.pull_request.base.ref == 'main') &&
+      (
+        github.event.action == 'opened' ||
+        github.event.action == 'reopened' ||
+        github.event.action == 'synchronize' ||
+        (github.event.action == 'labeled' && github.event.label.name == 'needs-ai-review')
+      )
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -38,3 +35,22 @@ jobs:
           temperature: 0.3
           exclude_patterns: '.github/*, *.json'
           custom_review_rules: 'custom-rules/review.json'
+      # ────────────── LABEL MAINTENANCE ──────────────
+      # 1. Drop the “needs-ai-review” label if it exists
+      - name: Remove needs-ai-review label (if present)
+        if: |
+          contains(
+            join(github.event.pull_request.labels.*.name, ','),
+            'needs-ai-review'
+          )
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: needs-ai-review
+
+      # 2. Add / ensure the “ai-reviewed” label
+      - name: Add ai-reviewed label
+        uses: actions-ecosystem/action-add-labels@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          labels: ai-reviewed
