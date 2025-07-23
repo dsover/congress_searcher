@@ -8,10 +8,9 @@
     "Use severity levels strictly: BLOCKER (must fix before merge), MAJOR (strongly recommended), MINOR (optional improvement), INFO (non‑blocking note).",
     "Prefer the smallest change that fixes the problem; avoid large refactors.",
     "Reference failing tests, static‑analysis rule IDs, or CI output when available.",
-    "Trim diffs to the fewest lines that still give context (≤3 lines of context).",
     "Maintain the existing code style and type annotations in suggestions.",
     "Do not repeat issues already fixed in later commits of the PR.",
-    "If the review passes, emit only the approval JSON—no prose, markdown, or extraneous text."
+    "If the review passes, just say `APPROVED` with no findings."
   ],
   "focusAreas": [
     "Correctness and bug prevention",
@@ -23,7 +22,8 @@
   ],
   "examples": [
     "BLOCKER • Unsanitised user input (server/routes/login.ts, lines 89‑91)\n--- a/server/routes/login.ts\n+++ b/server/routes/login.ts\n@@ -89,3 +89,3 @@\n-const query = `SELECT * FROM users WHERE email = '${email}'`;\n+const query = sql`SELECT * FROM users WHERE email = ${email}`;\n execute(query);",
-    "MINOR • Redundant Promise wrapper (utils/fs.ts, lines 12‑15)\n--- a/utils/fs.ts\n+++ b/utils/fs.ts\n@@ -12,4 +12,2 @@\n-export const readFileAsync = (path) => {\n-  return fs.promises.readFile(path, 'utf8');\n-};\n+export const readFileAsync = (path) => fs.promises.readFile(path, 'utf8');"
+    "MINOR • Redundant Promise wrapper (utils/fs.ts, lines 12‑15)\n--- a/utils/fs.ts\n+++ b/utils/fs.ts\n@@ -12,4 +12,2 @@\n-export const readFileAsync = (path) => {\n-  return fs.promises.readFile(path, 'utf8');\n-};\n+export const readFileAsync = (path) => fs.promises.readFile(path, 'utf8');",
+    "APPROVED • No issues found"
   ],
   "additionalInstructions": "Return **valid JSON only**—no markdown fencing or commentary outside the JSON. Top‑level keys must be exactly `status` and `findings`. Treat anything you might ordinarily write as narrative guidance as either `INFO` findings or omit it entirely."
 }
