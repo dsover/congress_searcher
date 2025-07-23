@@ -33,8 +33,6 @@ jobs:
           review_type: 'full'
           max_tokens: 32768
           temperature: 0.3
-          exclude_patterns: '.github/*, *.json'
-          custom_review_rules: 'custom-rules/review.json'
       # ────────────── LABEL MAINTENANCE ──────────────
       # 1. Drop the “needs-ai-review” label if it exists
       - name: Remove needs-ai-review label (if present)
